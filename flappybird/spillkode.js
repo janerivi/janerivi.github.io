@@ -84,10 +84,10 @@ function forAlltid(){
 		}
 
 		//sjekk kollisjoner eller kræsj med bakken
-		if(	erKollisjonMellom(flappy,toppRoer) || 
-			erKollisjonMellom(flappy,bunnRoer) ||
-			erKollisjonMellom(flappy,toppRoer1) || 
-			erKollisjonMellom(flappy,bunnRoer1) ||  
+		if(	erKollisjonMellom(flappy,toppRoer) 	|| 
+		   	erKollisjonMellom(flappy,bunnRoer) 	|| 
+		   	erKollisjonMellom(flappy,toppRoer1) || 
+		   	erKollisjonMellom(flappy,bunnRoer1) ||  
 			(flappy.offsetTop > 335)){
 			
 			gameover.style.display="block";	
