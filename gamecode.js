@@ -1,16 +1,16 @@
-//////////////////////////	
-// HER KOMMER PROGRAMMET//
-//////////////////////////
+///////////////////	
+// THE GAME CODE //
+///////////////////
 
 
-// variabler
+// variables
 var nedoverfart = 0;
 var tyngdekraft = 0.2;
 var sidefart = 2;
 var poeng = 0;
 var flappyLever=true;	
 
-//figurer i spillet (også variabler)
+//game characters (også variabler)
 var flappy;
 var topp;
 var topp1;
