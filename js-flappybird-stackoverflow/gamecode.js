@@ -106,7 +106,9 @@ function restart(){
 
 	// resets flappy
 	flappy.style.top = "50px";
+	topDistance = 50;
 	downspeed = 0;
+	
 	
 
 
