@@ -12,7 +12,7 @@ var sidefart = 2;
 var poeng = 0;
 var flappyLever=true;	
 
-//game characters (variables too)
+// spillfigurer, gameover-bilde og poengtekst
 var toppRoer;
 var toppRoer1;
 var bunnRoer;
@@ -22,7 +22,7 @@ var gemeover;
 
 function start(){
 
-	// gets the elements from the document using their id
+	// henter elementene den finner i dokumentet via id og putter dem i variablene vi har laget
 	flappy = document.getElementById("flappy");
 	gameover = document.getElementById("gameover");
 	toppRoer = document.getElementById("topp");
@@ -32,7 +32,7 @@ function start(){
 	poengtekst = document.getElementById("poengtekst");
 	poengtekst.innerHTML = poeng + " poeng";
 	
-	//starts the forever loop
+	//starter "For Alltid"- løkka
 	loop(forAlltid);
 }
 	
@@ -40,16 +40,18 @@ function forAlltid(){
 
 	if(flappyLever){
 
-		// uses tyngdekraft to change the downward speed
+		// bruker tyngdekraften for å forandre nedoverfarten
 		nedoverfart = nedoverfart + tyngdekraft;
+		
+		//bruker nedoverfarten for å forandre avstanden fra toppen
 		toppAvstand = toppAvstand + nedoverfart;
 		
-		// moves flappy to the new calculated position
+		// flytter flappy til ny posisjon (topp avstand)
 		flappy.style.top = Math.round(toppAvstand)+"px";
 
 		
 
-		// moves the tubes
+		// flytter rørene
 		roerPos = roerPos-sidefart;
 		toppRoer.style.left = roerPos+"px";
 		bunnRoer.style.left = roerPos+"px";
@@ -59,7 +61,8 @@ function forAlltid(){
 		bunnRoer1.style.left = roerPos1+"px";
 
 
-		//sjekk om rørene har gått ut av bildet  til venstre og flytt dem til høyre
+		//sjekk om rørene har gått ut av bildet til venstre. 
+		// Hvis de er det får man poeng og man flytter rørene helt til høyre utenfor bildet
 		if(roerPos < -52){
 			poeng = poeng + 1;
 			poengtekst.innerHTML = poeng + " poeng";
