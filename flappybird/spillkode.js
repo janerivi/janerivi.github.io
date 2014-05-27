@@ -49,8 +49,6 @@ function forAlltid(){
 		// flytter flappy til ny posisjon (topp avstand)
 		flappy.style.top = Math.round(toppAvstand)+"px";
 
-		
-
 		// flytter rørene
 		roerPos = roerPos-sidefart;
 		toppRoer.style.left = roerPos+"px";
@@ -59,7 +57,6 @@ function forAlltid(){
 		roerPos1 = roerPos1-sidefart;
 		toppRoer1.style.left = roerPos1+"px";
 		bunnRoer1.style.left = roerPos1+"px";
-
 
 		//sjekk om rørene har gått ut av bildet til venstre. 
 		// Hvis de er det får man poeng og man flytter rørene helt til høyre utenfor bildet
