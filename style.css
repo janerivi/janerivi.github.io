@@ -8,7 +8,7 @@ body {
 	}
 
 	#gameframe {
-		background-image:url('bilder/bakgrunn.png');
+		background-image:url('images/bakgrunn.png');
 		width:480px;
 		height:360px;
 		top:20px;
