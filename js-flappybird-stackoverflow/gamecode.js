@@ -7,6 +7,8 @@
 var downspeed = 0;
 var gravity = 0.2;
 var topDistance = 50; // the distance that flappy will be positioned from the top
+var tubePos = 280;
+var tubePos1 = 20;
 var sidespeed = 2;
 var points = 0;
 var flappyLives=true;	
@@ -48,12 +50,15 @@ function forEver(){
 		// This does not work on firefox: flappy.style.top = Math.round((flappy.offsetTop + downspeed))+"px";
 		
 
-		// flytt rørene
-		topTube.style.left = (topTube.offsetLeft - sidespeed)+"px";
-		bottomTube.style.left = topTube.offsetLeft+"px";
+		// moves the tubes
+		tubePos = tubePos-sidespeed;
+		topTube.style.left = tubePos+"px";
+		bottomTube.style.left = tubePos+"px";
 
-		topTube1.style.left = (topTube1.offsetLeft - sidespeed)+"px";
-		bottomTube1.style.left = topTube1.offsetLeft+"px";
+		tubePos1 = tubePos1-sidespeed;
+		topTube1.style.left = tubePos1+"px";
+		bottomTube1.style.left = tubePos1+"px";
+
 
 		//sjekk om rørene har gått ut av bildet  til venstre og flytt dem til høyre
 		if(topTube.offsetLeft < -52){
