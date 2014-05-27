@@ -12,10 +12,10 @@ var flappyLives=true;
 
 //game characters (også variabler)
 var flappy;
-var top;
-var top1;
-var bottom;
-var bottom1;
+var topTube;
+var topTube1;
+var bottomTube;
+var bottomTube1;
 var pointtext;
 var gemeover;
 
@@ -24,10 +24,10 @@ function start(){
 	// lager listen over figurer i spillet
 	flappy = document.getElementById("flappy");
 	gameover = document.getElementById("gameover");
-	top = document.getElementById("top");
-	bottom = document.getElementById("bottom");
-	top1 = document.getElementById("top1");
-	bottom1 = document.getElementById("bottom1");
+	topTube = document.getElementById("top");
+	bottomTube = document.getElementById("bottom");
+	topTube1 = document.getElementById("top1");
+	bottomTube1 = document.getElementById("bottom1");
 	pointtext = document.getElementById("pointtext");
 	pointtext.innerHTML = points + " points";
 	
@@ -46,36 +46,36 @@ function forEver(){
 		flappy.style.top = Math.round((flappy.offsetTop + downspeed))+"px";
 
 		// flytt rørene
-		top.style.left = (top.offsetLeft - sidespeed)+"px";
-		bottom.style.left = top.offsetLeft+"px";
+		topTube.style.left = (topTube.offsetLeft - sidespeed)+"px";
+		bottomTube.style.left = topTube.offsetLeft+"px";
 
-		top1.style.left = (top1.offsetLeft - sidespeed)+"px";
-		bottom1.style.left = top1.offsetLeft+"px";
+		topTube1.style.left = (topTube1.offsetLeft - sidespeed)+"px";
+		bottomTube1.style.left = topTube1.offsetLeft+"px";
 
 		//sjekk om rørene har gått ut av bildet  til venstre og flytt dem til høyre
-		if(top.offsetLeft < -52){
+		if(topTube.offsetLeft < -52){
 			points = points + 1;
 			pointtext.innerHTML = points + " points";
-			top.style.left = 480+"px"; 
+			topTube.style.left = 480+"px"; 
 
-			top.style.top = Math.round((Math.random()*150 -200))+"px"; 
-			bottom.style.top = (top.offsetTop + 360)+"px"; 
+			topTube.style.top = Math.round((Math.random()*150 -200))+"px"; 
+			bottomTube.style.top = (top.offsetTop + 360)+"px"; 
 		}
 
-		if(top1.offsetLeft < -52){
+		if(topTube1.offsetLeft < -52){
 			points = points + 1;
 			poengtekst.innerHTML = points + " points";
-			top1.style.left = 480+"px"; 
+			topTube1.style.left = 480+"px"; 
 
-			top1.style.top = Math.round((Math.random()*150 -200))+"px"; 
-			bottom1.style.top = (top1.offsetTop + 360)+"px"; 
+			topTube1.style.top = Math.round((Math.random()*150 -200))+"px"; 
+			bottomTube1.style.top = (topTube1.offsetTop + 360)+"px"; 
 		}
 
 		//sjekk kollisjoner eller kræsj med bakken
-		if(	isCollisionBetween(flappy,top) || 
-			isCollisionBetween(flappy,bottom) ||
-			isCollisionBetween(flappy,top1) || 
-			isCollisionBetween(flappy,bottom1) ||  
+		if(	isCollisionBetween(flappy,topTube) || 
+			isCollisionBetween(flappy,bottomTube) ||
+			isCollisionBetween(flappy,topTube1) || 
+			isCollisionBetween(flappy,bottomTube1) ||  
 			(flappy.offsetTop > 335)){
 			
 			gameover.style.display="block";	
@@ -108,14 +108,14 @@ function restart(){
 
 
 	// resets the tubes
-	top.style.left = "280px";
-	bottom.style.left = "280px";
-	top1.style.left = "20px";
-	bottom1.style.left = "20px";
-	top.style.top = Math.round((Math.random()*150 -200))+"px"; 
-	bottom.style.top = (topp.offsetTop + 370)+"px";
-	top1.style.top = Math.round((Math.random()*150 -200))+"px"; 
-	bottom1.style.top = (topp1.offsetTop + 370)+"px";  
+	topTube.style.left = "280px";
+	bottomTube.style.left = "280px";
+	topTube1.style.left = "20px";
+	bottomTube1.style.left = "20px";
+	topTube.style.top = Math.round((Math.random()*150 -200))+"px"; 
+	bottomTube.style.top = (topp.offsetTop + 370)+"px";
+	topTube1.style.top = Math.round((Math.random()*150 -200))+"px"; 
+	bottomTube1.style.top = (topp1.offsetTop + 370)+"px";  
 	gameover.style.display="none";
 
 	// makes flappy alive again
