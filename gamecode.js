@@ -113,9 +113,9 @@ function restart(){
 	topTube1.style.left = "20px";
 	bottomTube1.style.left = "20px";
 	topTube.style.top = Math.round((Math.random()*150 -200))+"px"; 
-	bottomTube.style.top = (topp.offsetTop + 370)+"px";
+	bottomTube.style.top = (top.offsetTop + 370)+"px";
 	topTube1.style.top = Math.round((Math.random()*150 -200))+"px"; 
-	bottomTube1.style.top = (topp1.offsetTop + 370)+"px";  
+	bottomTube1.style.top = (top1.offsetTop + 370)+"px";  
 	gameover.style.display="none";
 
 	// makes flappy alive again
