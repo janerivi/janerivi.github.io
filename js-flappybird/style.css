@@ -7,7 +7,7 @@ body {
 		position:absolute;
 	}
 
-	#spillrute {
+	#gameframe {
 		background-image:url('bilder/bakgrunn.png');
 		width:480px;
 		height:360px;
@@ -18,7 +18,7 @@ body {
 		border-radius:14px;
 	}
 
-	#poengtekst {
+	#pointtext {
 		font-family:"Courier New", Courier, monospace;
 		font-weight:bold;
 		font-size:24px;
@@ -62,8 +62,8 @@ body {
 	}
 
 
-	#topp {	top:-180px;	left:280px; }
-	#bunn {	top:190px; left:280px; }
-	#topp1 { top:-140px; left:20px; }
-	#bunn1 { top:230px; left:20px; }
+	#top 		{ top:-180px;	left:280px; }
+	#bottom 	{ top:190px; 	left:280px; }
+	#top1 		{ top:-140px; 	left:20px; }
+	#bottom1 	{ top:230px; 	left:20px; }
 
