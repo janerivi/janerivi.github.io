@@ -1,0 +1,68 @@
+body {
+		background:steelblue;
+	}
+
+	div {
+		display:block;
+		position:absolute;
+	}
+
+	#gameframe {
+		background-image:url('bilder/bakgrunn.png');
+		width:480px;
+		height:360px;
+		top:20px;
+		left:calc(50% - 240px);
+		overflow:hidden;
+		border:5px solid white;
+		border-radius:14px;
+	}
+
+	#poengtekst {
+		font-family:"Courier New", Courier, monospace;
+		font-weight:bold;
+		font-size:24px;
+		color:white;
+		top:10px;
+		left:10px;
+		text-shadow: -2px 0 #336699, 
+		0 2px #336699,
+		2px 0 #336699, 
+		0 -2px #336699;
+	}
+
+	#gameover {
+		display:none;
+		left:146px;
+		top:45%;
+	}
+
+	img {
+		display:block;
+		position:absolute;
+	}
+
+	#flappy {
+		display:block;
+		position: absolute;
+		left:100px;
+		top:50px;
+		 -moz-user-select: none; 
+        -khtml-user-select: none; 
+        -webkit-user-select: none; 
+        -o-user-select: none; 
+	}
+
+	.noselect {
+		-moz-user-select: none; 
+        -khtml-user-select: none; 
+        -webkit-user-select: none; 
+        -o-user-select: none; 	
+	}
+
+
+	#topp 		{ top:-180px;	left:280px; }
+	#bunn 	{ top:190px; 	left:280px; }
+	#topp1 		{ top:-140px; 	left:20px; }
+	#bunn1 	{ top:230px; 	left:20px; }
+
