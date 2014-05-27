@@ -5,14 +5,13 @@
 
 // variables
 var downspeed = 0;
-var topDistance = 0;
 var gravity = 0.2;
+var topDistance = 50; // the distance that flappy will be positioned from the top
 var sidespeed = 2;
 var points = 0;
 var flappyLives=true;	
 
-//game characters (også variabler)
-var flappy;
+//game characters (variables too)
 var topTube;
 var topTube1;
 var bottomTube;
@@ -22,7 +21,7 @@ var gemeover;
 
 function start(){
 
-	// gets the character elements from the document using their id
+	// gets the elements from the document using their id
 	flappy = document.getElementById("flappy");
 	gameover = document.getElementById("gameover");
 	topTube = document.getElementById("top");
@@ -40,11 +39,14 @@ function forEver(){
 
 	if(flappyLives){
 
-		// uses gravity to change the downward speed 
+		// uses gravity to change the downward speed
 		downspeed = downspeed + gravity;
 		topDistance = topDistance + downspeed;
-		// moves flappy using the downward speed
+		
+		// moves flappy to the new calculated position
 		flappy.style.top = Math.round(topDistance)+"px";
+		// This does not work on firefox: flappy.style.top = Math.round((flappy.offsetTop + downspeed))+"px";
+		
 
 		// flytt rørene
 		topTube.style.left = (topTube.offsetLeft - sidespeed)+"px";
@@ -89,7 +91,7 @@ function forEver(){
 }
 
 function afterMouseClick(){
-	console.log("ettermuseklikk fyrt");
+
 	if(flappyLives){
 		downspeed = -4; // når du har minus på nedoverfart blir det oppoverfart
 	} else {
