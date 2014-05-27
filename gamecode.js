@@ -59,7 +59,7 @@ function forEver(){
 			topTube.style.left = 480+"px"; 
 
 			topTube.style.top = Math.round((Math.random()*150 -200))+"px"; 
-			bottomTube.style.top = (top.offsetTop + 360)+"px"; 
+			bottomTube.style.top = (topTube.offsetTop + 360)+"px"; 
 		}
 
 		if(topTube1.offsetLeft < -52){
