@@ -61,19 +61,21 @@ function forEver(){
 
 
 		//sjekk om rørene har gått ut av bildet  til venstre og flytt dem til høyre
-		if(topTube.offsetLeft < -52){
+		if(tubePos < -52){
 			points = points + 1;
 			pointtext.innerHTML = points + " points";
-			topTube.style.left = 480+"px"; 
+			tubePos = 480;
+			topTube.style.left = tubePos+"px"; 
 
 			topTube.style.top = Math.round((Math.random()*150 -200))+"px"; 
 			bottomTube.style.top = (topTube.offsetTop + 360)+"px"; 
 		}
 
-		if(topTube1.offsetLeft < -52){
+		if(tubePos1 < -52){
 			points = points + 1;
 			pointtext.innerHTML = points + " points";
-			topTube1.style.left = 480+"px"; 
+			tubePos1 = 480;
+			topTube1.style.left = tubePos1+"px"; 
 
 			topTube1.style.top = Math.round((Math.random()*150 -200))+"px"; 
 			bottomTube1.style.top = (topTube1.offsetTop + 360)+"px"; 
@@ -118,10 +120,12 @@ function restart(){
 
 
 	// resets the tubes
-	topTube.style.left = "280px";
-	bottomTube.style.left = "280px";
-	topTube1.style.left = "20px";
-	bottomTube1.style.left = "20px";
+	tubePos = 280;
+	tubePos1 = 20;
+	topTube.style.left = tubePos+"px";
+	bottomTube.style.left = tubePos+"px";
+	topTube1.style.left = tubePos1+"px";
+	bottomTube1.style.left = tubePos1+"px";
 	topTube.style.top = Math.round((Math.random()*150 -200))+"px"; 
 	bottomTube.style.top = (topTube.offsetTop + 370)+"px";
 	topTube1.style.top = Math.round((Math.random()*150 -200))+"px"; 
