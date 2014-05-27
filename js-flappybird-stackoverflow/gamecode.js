@@ -5,6 +5,7 @@
 
 // variables
 var downspeed = 0;
+var topDistance = 0;
 var gravity = 0.2;
 var sidespeed = 2;
 var points = 0;
@@ -21,7 +22,7 @@ var gemeover;
 
 function start(){
 
-	// lager listen over figurer i spillet
+	// gets the character elements from the document using their id
 	flappy = document.getElementById("flappy");
 	gameover = document.getElementById("gameover");
 	topTube = document.getElementById("top");
@@ -31,7 +32,7 @@ function start(){
 	pointtext = document.getElementById("pointtext");
 	pointtext.innerHTML = points + " points";
 	
-	//starter forAlltid løkken
+	//starts the forever loop
 	loop(forEver);
 }
 	
@@ -39,11 +40,11 @@ function forEver(){
 
 	if(flappyLives){
 
-		// bruk tyngdekraft til  å endre farten på flappy
+		// uses gravity to change the downward speed 
 		downspeed = downspeed + gravity;
-
-		// flytt på flappy med farten
-		flappy.style.top = Math.round((flappy.offsetTop + downspeed))+"px";
+		topDistance = topDistance + downspeed;
+		// moves flappy using the downward speed
+		flappy.style.top = Math.round(topDistance)+"px";
 
 		// flytt rørene
 		topTube.style.left = (topTube.offsetLeft - sidespeed)+"px";
