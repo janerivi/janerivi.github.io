@@ -64,7 +64,7 @@ function forEver(){
 
 		if(topTube1.offsetLeft < -52){
 			points = points + 1;
-			poengtekst.innerHTML = points + " points";
+			pointtext.innerHTML = points + " points";
 			topTube1.style.left = 480+"px"; 
 
 			topTube1.style.top = Math.round((Math.random()*150 -200))+"px"; 
