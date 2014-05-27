@@ -37,7 +37,7 @@ function start(){
 	
 function forEver(){
 
-	if(flappyLever){
+	if(flappyLives){
 
 		// bruk tyngdekraft til  å endre farten på flappy
 		downspeed = downspeed + gravity;
