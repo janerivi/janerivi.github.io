@@ -2,7 +2,6 @@
 // THE GAME CODE //
 ///////////////////
 
-
 // variables
 var downspeed = 0;
 var gravity = 0.2;
@@ -116,9 +115,6 @@ function restart(){
 	topDistance = 50;
 	downspeed = 0;
 	
-	
-
-
 	// resets the tubes
 	tubePos = 280;
 	tubePos1 = 20;
