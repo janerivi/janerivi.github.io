@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;my-repo&gt;</title>
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="bower_components/platform/platform.js"></script>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="src/webatlas-element.html">
+    <link rel="import" href="src/webatlas-animation.html">
+
+    
+    <style>
+    html, body, br {
+	    padding: 0;
+	    margin: 0;
+	}
+	html, body{
+	    height: 100%;
+	}
+	br {
+		width:0px;
+		height:0px;
+	}
+
+	div{
+		display:inline-block;
+		float:left;
+	}
+
+	</style>
+</head>
+<body>
+<div style="width:70%; height:70%">
+	<webatlas-animation customer="WA_JS_V3_Coursework"  decoration="true"> </webatlas-animation>
+	
+</div>
+
+
+	
+
+</body>
+</html>

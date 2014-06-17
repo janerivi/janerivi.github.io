@@ -1,0 +1,23 @@
+{
+  "name": "webatlas-element",
+  "version": "0.0.0",
+  "authors": [
+    "Jan-Erik Vinje <j.e.vinje@gmail.com>"
+  ],
+  "description": "a web-component wrapping the webatlas.js and boilerplate markup",
+  "main": "src/webatlas-element.html",
+  "keywords": [
+    "web-components"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.2.3"
+  }
+}

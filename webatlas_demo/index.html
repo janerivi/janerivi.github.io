@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;my-repo&gt;</title>
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="bower_components/platform/platform.js"></script>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="src/webatlas-element.html">
+
+    
+    <style>
+    html, body, br {
+	    padding: 0;
+	    margin: 0;
+	}
+	html, body{
+	    height: 100%;
+	}
+	br {
+		width:0px;
+		height:0px;
+	}
+
+	div{
+		display:inline-block;
+		float:left;
+	}
+
+	</style>
+</head>
+<body>
+<div style="width:60%; height:60%">
+	<webatlas-element customer="WA_JS_V3_Coursework"  latitude="59.9144252" longitude="10.745925" zoomlevel="4" decoration="false"> </webatlas-element>
+</div>
+
+<div style="width:40%; height:60%">
+	<webatlas-element customer="WA_JS_V3_Coursework"  latitude="59.9144252" longitude="10.745925" zoomlevel="18" decoration="false"> </webatlas-element>
+</div>
+<div style="width:60%; height:40%">
+	<webatlas-element customer="WA_JS_V3_Coursework"  latitude="59.9144252" longitude="10.745925" zoomlevel="30" decoration="false"> </webatlas-element>
+</div>
+
+<div style="width:40%; height:40%">
+	<webatlas-element customer="WA_JS_V3_Coursework"  latitude="60" longitude="11" zoomlevel="30" decoration="false"> </webatlas-element>
+</div>
+
+
+	
+
+</body>
+</html>

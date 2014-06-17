@@ -1,0 +1,58 @@
+
+<!-- Import Polymer -->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+<!-- The webatlas-element definition -->
+<polymer-element name="map-animation-step" attributes="duration title description latitude longitude zoomlevel ">
+	<template>
+		<style>
+			:host{
+				display: none !important;
+			}
+		</style>
+	</template>
+
+    <script>
+        Polymer('map-animation-step', {
+            duration:1000, // in milliseconds
+            description: "",
+            title:"",
+        	zoomlevel:10,
+        	zoomlevelChanged:function(oldValue, newValue){
+        		this.latidue = newValue;
+        	},
+        	latitude : 64.0107043,
+        	latitudeChanged: function(oldValue, newValue){
+        		this.latidue = newValue;
+        	},
+            longitude : 11.4901134,
+            longitudeChanged:function(oldValue, newValue){
+        		this.longitude = newValue;
+        	},
+            // Fires when the "<polymer-element>" has been fully prepared
+            ready: function() {
+            	var randomstring = "map_host_random_id_"+Math.random().toString(36).replace(/[^a-z]+/g, '');
+            	this.id=randomstring;
+            	this.map = new WebatlasMap(randomstring, {customer: this.customer, decoration:this.decoration});
+    			//endrer senterpunkt til koordinatene
+    			this.map.setView(new L.LatLng(this.latitude, this.longitude));
+    			//this.map.setView(new L.LatLng(64.0107043, 11.4901134));
+            	
+
+            },
+
+            // Fires when the element was inserted into the document
+            attached: function() {
+
+            },
+
+            // Fires when the element was removed from the document
+            detached: function() {},
+
+            // Fires when an attribute was added, removed, or updated
+            attributeChanged: function(attr, oldVal, newVal) {}
+        });
+    </script>
+
+</polymer-element>

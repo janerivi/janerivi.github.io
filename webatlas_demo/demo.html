@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demo page of webatlas-element</title>
+	
+    <!-- Importing Web Component's Polyfill -->
+    <script src="bower_components/platform/platform.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- Importing Custom Elements -->
+	<link rel="import" href="src/map-history.html">
+
+
+    
+    <style>
+    html, body, br {
+
+	    padding: 0;
+	    margin: 0;
+	}
+	body{
+	    height: 100%;
+	    background:url('topo2.png') #CCC;
+	    background-position: -15px -10px;
+		background-size:120% auto;
+	}
+	br {
+		width:0px;
+		height:0px;
+	}
+
+	div{
+		display:inline-block;
+		float:left;
+	}
+		
+
+	.framed{
+		padding:10px;
+		margin:30px;
+		background:white;
+		display:block;
+		float:none;
+		width:300px;
+		height:300px;
+		-webkit-box-shadow: 1px 1px 2px 0px rgba(50, 50, 50, 0.5);
+		-moz-box-shadow:    1px 1px 2px 0px rgba(50, 50, 50, 0.5);
+		box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.5);
+	}
+		
+		map-history{
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:30px;
+		}
+
+
+	</style>
+</head>
+<body>
+<map-history id="maphistory" title="I lære hos en mester"
+			 year="1989"   
+			 month="April"
+			 zoomlevel="15"
+			 latitude="59.9183585" 
+			 longitude="10.7487839"
+			 addr="Wilses gt. 1"
+			 pic="src/img/trygve.jpg">
+	<description>
+		Dette er fortellingen om et <b>sted</b> på kartet!	
+		<p>bla bla bla</p>
+
+
+
+	</description>
+
+</map-history>
+<!--
+	<webatlas-element customer="WA_JS_V3_Coursework"  latitude="59.9144252" longitude="10.745925" zoomlevel="4" decoration="false"> </webatlas-element> -->
+
+
+
+
+
+
+</body>
+</html>

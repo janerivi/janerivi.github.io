@@ -1,0 +1,98 @@
+<link rel="import" href="webatlas-element.html">
+
+<!-- The mapandtext-element definition -->
+<polymer-element name="mapandtext-element" attributes="customer latitude longitude zoomlevel decoration description title">
+	<template>
+		<style>
+			:host{
+				display: block;
+				position:relative;
+				width:800px;
+				height:400px;
+				background:white;
+			}
+
+			webatlas-element{
+				top:5%;
+				left:5%;
+				width:90%;
+				height:90%;
+				position:absolute;
+
+	
+			}
+		</style>
+		
+		<div style="width:50%;height:100%; display:block; position:relative; float:left;">
+		<!--<webatlas-element customer="WA_JS_V3_Coursework"  latitude="59.9144252" longitude="10.745925" zoomlevel="18" decoration="false"> </webatlas-element>-->
+		<webatlas-element id="themap" customer="WA_JS_V3_Coursework"  latitude="{{latitude}}" longitude="{{longitude}}" zoomlevel="{{zoomlevel}}" decoration="{{decoration}}"> </webatlas-element> 
+		</div>
+		<div style="float:left;display:block;background:limegreen;width:50%;height:100%; padding-left:5%; box-sizing: border-box;"> 
+			<h1>{{title}}</h1>
+			<p class="description-container">{{description}}</p>
+		</div>
+		
+		<br>
+		
+	</template>
+
+    <script>
+        Polymer('mapandtext-element', {
+        	map : null,
+        	decoration:true,
+        	zoomlevel:22,
+        	zoomlevelChanged:function(oldValue, newValue){
+        		//this.map.setView(new L.LatLng(this.latitude, this.longitude), newValue);
+        		this.latidue = newValue;
+        	},
+        	latitude : 59.9183585,
+        	latitudeChanged: function(oldValue, newValue){
+        		//console.log("latitude changed to: "+ newValue );
+        		//this.map.setView(new L.LatLng(newValue, this.longitude), this.zoomlevel);
+        		this.latidue = newValue;
+        	},
+            longitude : 10.7487839,
+            longitudeChanged:function(oldValue, newValue){
+        		//console.log("longitude changed to: "+ newValue );
+        		//this.map.setView(new L.LatLng(this.latitude, newValue), this.zoomlevel);
+        		//this.longitude = newValue;
+        	},
+            // Fires when the "<polymer-element>" has been fully prepared
+            ready: function() {
+				
+                var mapelement = this.shadowRoot.querySelector("#themap");
+                mapelement.map.invalidateSize(false);
+				mapelement.map.on('move', function(){
+					this.latitude = mapelement.map.getcenter().latitude;
+					this.longitude = mapelement.map.getcenter().longitude;
+					console.log("moves");
+				});
+				mapelement.map.on('click', function(){
+					this.latitude = mapelement.map.getcenter().latitude;
+					this.longitude = mapelement.map.getcenter().longitude;
+					console.log("moves");
+				});
+            	//var randomstring = "map_host_random_id_"+Math.random().toString(36).replace(/[^a-z]+/g, '');
+            	//this.id=randomstring;
+            	//this.map = new WebatlasMap(this, {customer: this.customer, decoration:this.decoration});
+    			//endrer senterpunkt til koordinatene
+    			//this.map.setView(new L.LatLng(this.latitude, this.longitude), this.zoomlevel);
+    			//this.map.setView(new L.LatLng(64.0107043, 11.4901134));
+            	
+
+            },
+
+            // Fires when the element was inserted into the document
+            attached: function() {
+
+            },
+
+            // Fires when the element was removed from the document
+            detached: function() {},
+
+            // Fires when an attribute was added, removed, or updated
+            attributeChanged: function(attr, oldVal, newVal) {}
+        });
+    </script>
+
+</polymer-element>

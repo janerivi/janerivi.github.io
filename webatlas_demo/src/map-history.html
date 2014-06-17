@@ -1,0 +1,314 @@
+
+<link rel="import" href="webatlas-element.html">
+
+<!-- The mapandtext-element definition -->
+<polymer-element name="map-history" attributes="customer pic latitude longitude addr zoomlevel decoration description title month year">
+	<template>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+		<style>
+			@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900);
+			:host{
+				box-sizing:border-box;
+				display: block;
+				position:relative;
+				width:800px;
+				height:600px;
+				background:white;
+				font-family: 'Helvetica Neue', Helvetica, Arial;
+				margin:0;
+				padding:0;
+				-webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+				-moz-box-shadow:    1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+				box-shadow:         1px 1px 3px 0px rgba(0, 0, 0, 0.3); 
+			}
+			#container{
+				width:100%;
+				height:100%;
+				box-sizing:border-box;
+			}
+			#topbar{
+				box-sizing:border-box;
+				width:100%;
+				height:90px;
+				background:#51A026;
+				color:white
+			}
+			
+			#year_and_month{
+				/*font-family:"Helvetica Neue", Helvetica;*/
+				margin-left:30px;
+				margin-top:0px;
+				font-size:45px;
+				font-weight: normal;
+    			font-style: normal;
+				position:relative;
+				line-height:90px;
+				float:left;
+			}
+			
+			#latlong, #address{
+				padding-top:20px;
+				padding-bottom:15px;
+				padding-left:30px;
+				font-size:12px;
+				float:left;
+				line-height: 25px;
+
+			}
+			#address{
+				padding-left:100px;
+			}
+			
+			#map_container {
+				width:100%;
+				height:60%;
+				background:#999;
+			}
+			#bottom_container{
+				height:150px;
+				
+				color:#121212;
+			}
+			
+			#text_container{
+				padding-left:30px;
+				width:635px;
+				float:left;
+				overflow-y: auto;
+				height:150px;
+				
+			}
+			
+			#text_container h1{
+				margin-top:15px;
+				font-size:30px;
+				line-height:30px;
+			}
+			
+			#description_container{
+				margin-top:-10px;
+				font-size:14px;
+
+			}
+			
+			
+			#theimage{
+				display:none;
+				float:left;
+				width:120px;
+				height:120px;
+				margin-top:15px;
+				margin-left:15px;
+				background-size:auto 100%;
+				/*background-image: url("src/img/trygve.jpg");*/
+			}
+			
+			#play{
+				float:right;
+				width:60px;
+				
+				margin-right:15px;
+				margin-top:15px;
+			}
+
+			webatlas-element{
+				position:relative;
+				width:100%;
+				height:100%;
+	
+			}
+			
+			
+			.leaflet-control-container{
+				display:none;
+			}
+		</style>
+		<div id="container">
+			
+			<div id="topbar">
+				<div id="year_and_month">
+					{{month}} {{space}} {{year}}
+				</div>
+				<div id="latlong">
+					<b>latitude:</b> {{latitude}}
+					<br>
+					<b>longitude:</b> {{longitude}}
+				
+				</div>
+		
+				<div id="address">
+					<b>street address:</b> 
+					<br>{{addr}}
+
+				</div>
+
+
+				<div id="play">
+				<img src="img/play.svg"/>
+				</div>
+		
+			</div>
+			<div id="map_container" >
+				<webatlas-element id="themap" customer="WA_JS_V3_Coursework"  latitude="{{latitude}}" longitude="{{longitude}}" zoomlevel="{{zoomlevel}}" decoration="{{decoration}}"> </webatlas-element>
+			</div>
+		
+			<div id="bottom_container">
+				
+				<div id="theimage"></div>
+				
+				<div id="text_container"> 
+					<h1>{{title}}</h1>
+					<div id="description_container">{{description}}<content select="description"></content></div>
+				</div>
+			</div>
+			
+
+			
+		
+		
+		</div>
+		
+		
+		
+		<br>
+		
+	</template>
+
+    <script>
+        Polymer('map-history', {
+			demoArray: [
+				{
+					title:"Ammerud - blokker i skauen",
+					description:"Her i Ammerudhellinga 50 vokste jeg opp.",
+			 		year:"1981",  
+			 		month:"Juni", 
+			 		latitude:59.9623302, 
+			 		longitude:10.8720617,
+					zoomlevel:17,
+			 		addr:"Ammerudhellinga 50",
+			 		pic:"src/img/Ammerud.jpg"
+					
+				},{
+					title:"Gløshaugen - en høygeknologisk lekegrind",
+					description:"Her med utsyn over Trondheim by, studerte jeg .",
+			 		year:"2002",  
+			 		month:"Aug", 
+			 		latitude:63.419696, 
+			 		longitude:10.401756,
+					zoomlevel:15,
+			 		addr:"Høgskoleringen 1",
+			 		pic:"src/img/Gloshaugen.jpeg"
+					
+				}
+			],
+			demoArrayIndex:0,
+        	map : null,
+			month:"JAN",
+			year:"2000",
+			pic:null,
+			space:" ",
+        	decoration:false,
+        	zoomlevel:19,
+			hasMarker:true,
+			addr:null,
+        	zoomlevelChanged:function(oldValue, newValue){
+        		//this.map.setView(new L.LatLng(this.latitude, this.longitude), newValue);
+        		this.latidue = newValue;
+        	},
+        	latitude : 59.9183585,
+        	latitudeChanged: function(oldValue, newValue){
+        		//console.log("latitude changed to: "+ newValue );
+        		//this.map.setView(new L.LatLng(newValue, this.longitude), this.zoomlevel);
+        		this.latidue = newValue;
+        	},
+            longitude : 10.7487839,
+            longitudeChanged:function(oldValue, newValue){
+        		//console.log("longitude changed to: "+ newValue );
+        		//this.map.setView(new L.LatLng(this.latitude, newValue), this.zoomlevel);
+        		//this.longitude = newValue;
+        	},
+            // Fires when the "<polymer-element>" has been fully prepared
+            ready: function() {
+				var mapelement = this.shadowRoot.querySelector("#themap");
+				this.map = mapelement.map;
+				that = this;
+				mapelement.map.on('moveend', function(){
+					var lat = that.map.getCenter().lat;
+					var long = that.map.getCenter().lng;
+					var zoom = that.map.getZoom();
+					that.longitude = long;
+					that.latitude = lat;
+					that.zoomlevel = zoom;
+					console.log("moves to lat: "+ lat +" and long: "+long);
+				});
+				
+				var theimage = this.shadowRoot.querySelector("#theimage");
+							
+				//console.log(theimage);
+				if(that.pic != null){
+					theimage.style.display = "block";
+					console.log(that.pic);
+					theimage.style.backgroundImage = "url('"+that.pic+"');";
+					theimage.style.backgroundImage="url('"+that.pic+"')";
+				}
+				var playElement = this.shadowRoot.querySelector("#play"); 
+				
+				var playcklick;
+				
+				playclick = function(){
+					if(that.demoArray.length>that.demoArrayIndex){
+						var currentStep = that.demoArray[that.demoArrayIndex];
+						that.title = currentStep.title;
+						that.description = currentStep.description;
+						that.zoomlevel = currentStep.zoomlevel;
+						that.latitude = currentStep.latitude;
+						that.longitude = currentStep.longitude;
+						that.pic = currentStep.pic;
+						that.year= currentStep.year;
+						that.month = currentStep.month;
+						that.addr = currentStep.addr;
+						theimage = that.shadowRoot.querySelector("#theimage");
+						console.log(theimage);
+						console.log(that.pic);
+						theimage.style.display = "block";
+						theimage.style.backgroundImage = "url('"+that.pic+"')";
+						console.log(theimage.style.backgroundImage);				
+						that.demoArrayIndex++;
+					}  else {
+						that.demoArrayIndex = 0; //loop back to start
+						playclick();
+					}
+				}
+				
+				playElement.onclick= playclick;
+				
+				L.marker([this.latitude, this.longitude]).addTo(mapelement.map);
+				
+                mapelement.map.invalidateSize(false);
+            	//var randomstring = "map_host_random_id_"+Math.random().toString(36).replace(/[^a-z]+/g, '');
+            	//this.id=randomstring;
+            	//this.map = new WebatlasMap(this, {customer: this.customer, decoration:this.decoration});
+    			//endrer senterpunkt til koordinatene
+    			//this.map.setView(new L.LatLng(this.latitude, this.longitude), this.zoomlevel);
+    			//this.map.setView(new L.LatLng(64.0107043, 11.4901134));
+            	
+
+            },
+
+            // Fires when the element was inserted into the document
+            attached: function() {
+				
+				
+
+            },
+
+            // Fires when the element was removed from the document
+            detached: function() {},
+
+            // Fires when an attribute was added, removed, or updated
+            attributeChanged: function(attr, oldVal, newVal) {},
+			
+        });
+    </script>
+
+</polymer-element>

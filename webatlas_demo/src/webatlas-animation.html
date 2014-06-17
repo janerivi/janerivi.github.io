@@ -1,0 +1,112 @@
+
+<!-- Import Polymer 
+<link rel="import" href="../bower_components/polymer/polymer.html"> -->
+
+<!-- Import WebAtlas.js 
+<script src="http://tsadm.webatlas.no/sh/3/v/020114/webatlas.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://tsadm.webatlas.no/sh/3/v/020114/webatlas.css" /> -->
+
+
+<!-- Import the other element (including the related polymer and webatlas scripts -->
+<link rel="import" href="webatlas-element.html"> 
+
+
+
+<!-- The webatlas-element definition -->
+<polymer-element name="webatlas-animation" attributes="customer decoration showdescriptions">
+	<template>
+		<style>
+			:host{
+				display: block;
+				height:100%;
+			}
+			.map-container{
+				/*float:left; */
+				display:block;
+				width:50%;
+				height:100%;
+                overflow:hidden;
+                position:relative;
+			}
+			.description-container{
+				float:left;
+				display:inline-block;
+				width:50%;
+				height:100%;
+			};
+		</style>
+        <div class="map-container" id="mapcontainer">
+            <webatlas-element customer="WA_JS_V3_Coursework"  latitude="59.9144252" longitude="10.745925" zoomlevel="4" decoration="false"> </webatlas-element>
+        </div>
+        <div class="description-container"></div>
+        <content></content>
+        <!--
+		<div class="map-container" id="mapcontainer">
+			<!-- <webatlas-element style="float:none; display:block" id="webatlas_element" customer="{{customer}}"  latitude="{{_currentLatidue}}" longitude="{{_currentLongitude}}" zoomlevel="{{_currentZoomLevel}}" decoration="{{currentDecoration}}"></webatlas-element> -->
+		<!--
+        </div>
+		<div class="description-container">
+			<div id="desc"> <h1>{{_currentTitle}}</h1> <p>{{_currentDescription}}</p></div>
+		</div> -->
+
+		
+
+
+	</template>
+
+    <script>
+        Polymer('webatlas-animation', {
+        	_currentZoomLevel:10,
+        	_currentLatidue:64.0107043,
+        	_currentLongitude:11.4901134,
+        	_currentDecoration:true,
+        	_currentDescription:"...",
+        	_currentTitle:"title",
+        	showdescriptions:true,
+        	//map : null,
+        	//decoration:true,
+        	/*
+        	zoomlevel:10,
+        	zoomlevelChanged:function(oldValue, newValue){
+        		this.map.setView(new L.LatLng(this.latitude, this.longitude), newValue);
+        		this.latidue = newValue;
+        	},
+        	latitude : 64.0107043,
+        	latitudeChanged: function(oldValue, newValue){
+        		//console.log("latitude changed to: "+ newValue );
+        		this.map.setView(new L.LatLng(newValue, this.longitude), this.zoomlevel);
+        		this.latidue = newValue;
+        	},
+            longitude : 11.4901134,
+            longitudeChanged:function(oldValue, newValue){
+        		//console.log("longitude changed to: "+ newValue );
+        		this.map.setView(new L.LatLng(this.latitude, newValue), this.zoomlevel);
+        		this.longitude = newValue;
+        	}, */
+
+            // Fires when the "<polymer-element>" has been fully prepared
+            ready: function() {
+            	//var randomstring = "map_host_random_id_"+Math.random().toString(36).replace(/[^a-z]+/g, '');
+            	//this.id=randomstring;
+            	//this.map = new WebatlasMap(this, {customer: this.customer, decoration:this.decoration});
+    			//endrer senterpunkt til koordinatene
+    			//this.map.setView(new L.LatLng(this.latitude, this.longitude));
+    			//this.map.setView(new L.LatLng(64.0107043, 11.4901134), 20);
+            	
+
+            },
+
+            // Fires when the element was inserted into the document
+            attached: function() {
+
+            },
+
+            // Fires when the element was removed from the document
+            detached: function() {},
+
+            // Fires when an attribute was added, removed, or updated
+            attributeChanged: function(attr, oldVal, newVal) {}
+        });
+    </script>
+
+</polymer-element>
